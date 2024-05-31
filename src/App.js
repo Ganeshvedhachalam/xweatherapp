@@ -20,7 +20,7 @@ function App() {
       setWeatherData(data);
     } catch (error) {
       console.error("Error fetching data:", error);
-      alert("Error fetching the data from URL: " + error.message);
+      alert("Failed to fetch weather data");
     } finally {
       setLoading(false);
     }
@@ -32,6 +32,7 @@ function App() {
       setDisplay(true);
       fetchWeatherData(input);
     }
+    setInput("")
   };
 
   const handleInputChange = (e) => {
@@ -43,6 +44,7 @@ function App() {
       <header className="App-header">
         <form onSubmit={handleSubmit}>
           <input
+          type='text'
             placeholder="Enter the city"
             value={input}
             onChange={handleInputChange}
@@ -50,12 +52,12 @@ function App() {
           <button type="submit">Search</button>
         </form>
 
-        {loading && <p>Loading...</p>}
+        {loading && <p>Loading data...</p>}
 
         {display && weatherData && (
           <div
             style={{ display: "flex", gap: "3", justifyContent: "space-between", alignItems: "center" }}
-            className="WeatherCards"
+            className="weather-cards"
           >
             <Weathercard cardname="Temperature" value={`${weatherData.current.temp_c} °C`} />
             <Weathercard cardname="Humidity" value={`${weatherData.current.humidity} %`} />

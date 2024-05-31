@@ -10,10 +10,10 @@ function Weathercard({cardname,value}) {
 
   },[])
   return (
-    <div  style ={{backgroundColor:"white" ,width:"200px",
-     height:"80px", border:"0px solid green" ,borderRadius:"9px"}} className="WeatherCard">
-        <h2>{cardname} </h2>
-        <h4>{value} </h4>
+    <div  style ={{backgroundColor:"white" ,width:"200px",padding:"30px", margin:"10px",
+     height:"100px", border:"0px solid green" ,borderRadius:"9px"}} className="weather-card">
+        <h4>{cardname} </h4>
+        <h6>{value} </h6>
 
      
     </div>
